@@ -1,26 +1,24 @@
-import tkinter
-from tkinter import ttk
+import tkinter as tk
 
-import sv_ttk
+def obtener_valor():
+    # Obtener el valor de la entrada
+    valor = entrada.get()
+    # Hacer algo con el valor (en este caso, imprimirlo)
+    print("El valor del Entry es:", valor)
 
-def main():
-    root = tkinter.Tk()
-    root.title("Youtube MP3 Downloader")
-    sv_ttk.set_theme("dark")
+# Crear una ventana Tkinter
+ventana = tk.Tk()
 
-    # Set maximum window size
-    root.geometry('1150x700')
-    root.maxsize(1150, 700)
+# Crear una variable StringVar para almacenar el valor del Entry
+valor_entry = tk.StringVar()
 
-    # Add a frame
-    frame = ttk.Frame(root)  # Create a frame with width of 5 pixels
-    frame.pack()  # Example of placing the frame
+# Crear un Entry y asociarlo con la variable StringVar
+entrada = tk.Entry(ventana, textvariable=valor_entry)
+entrada.pack()
 
-    # Add other widgets inside the frame
-    button = ttk.Button(frame, text='Download')  # Set button background color to gray and foreground (text) color to white
-    button.pack()  # Example of placing a button in the center
+# Crear un botón para llamar a la función obtener_valor
+boton = tk.Button(ventana, text="Obtener valor", command=obtener_valor)
+boton.pack()
 
-    root.mainloop()
-
-if __name__ == "__main__":
-    main()
+# Ejecutar el bucle principal de la ventana
+ventana.mainloop()
